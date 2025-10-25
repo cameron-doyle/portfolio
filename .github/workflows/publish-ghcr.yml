@@ -23,5 +23,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Dockerfile
           push: true
-          tags: ghcr.io/cameron-doyle/portfolio:latest
+          no-cache: true
+          tags: |
+            ghcr.io/cameron-doyle/portfolio:latest
+            ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
