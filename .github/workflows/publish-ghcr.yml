@@ -26,6 +26,13 @@ jobs:
           file: ./Dockerfile
           push: true
           no-cache: true
+          build-args: COMMIT_SHA=${{ github.sha }}
           tags: |
             ghcr.io/cameron-doyle/portfolio:latest
             ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
+
+      - name: Purge cloudflare cache
+        uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}

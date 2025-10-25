@@ -4,5 +4,5 @@ const navBarItems = [
 ]
 
 $(function () {
-	console.log("Hello world")
+	console.log("Hello world 2")
 })
