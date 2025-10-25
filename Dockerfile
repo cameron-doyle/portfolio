@@ -4,6 +4,6 @@ ARG COMMIT_SHA
 
 COPY . /public
 
-RUN find /public -type f -name "*.html" -exec sed -i "s|\${COMMIT_SHA}|${COMMIT_SHA}|g" {} +
+RUN find /public -type f -name "*.html" -exec sh -c 'sed -i "s|\${COMMIT_SHA}|'"$COMMIT_SHA"'|g" "$1"' _ {} \;
 
 EXPOSE 80
