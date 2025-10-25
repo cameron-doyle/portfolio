@@ -26,7 +26,6 @@ jobs:
           file: ./Dockerfile
           push: true
           no-cache: true
-          build-args: COMMIT_SHA=${{ github.sha }}
           tags: |
             ghcr.io/cameron-doyle/portfolio:latest
             ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
