@@ -56,10 +56,27 @@ nav {
 	background: linear-gradient(-45deg, #007ea7);
 }
 
+/* SVG */
+
 #navButton {
 	height: 100%;
 	float: right;
 }
+
+#bar1, #bar2 {
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+#navContainer.open #bar1 {
+  transform: rotate(45deg) translate(0, 70px);
+}
+
+#navContainer.open #bar2 {
+  transform: rotate(-45deg) translate(0, -70px);
+}
+
+/* END SVG */
 
 .vibratingColor {
 	background: linear-gradient(-45deg, #007ea7, #e30f0f, #d37d06, #07c760);
