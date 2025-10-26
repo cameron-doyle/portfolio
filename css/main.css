@@ -21,7 +21,7 @@ html {
 /* Navbar */
 nav {
 	position: fixed;
-	top: 0;
+	top: 3rem;
 	left: 0;
 
 	height: var(--nav-height);
@@ -37,7 +37,7 @@ nav {
 	width: 5rem;
 	height: 75%;
 	
-	border-radius: 6rem 0 0 10rem;
+	border-radius: 5rem 0 0 10rem;
 	padding: 0 .33rem 0 1.33rem;
 	
 	-webkit-box-shadow: 0 .3rem .2rem 0 #0000004f;
@@ -153,7 +153,7 @@ nav a:visited {
 .content {
 	width: 100vw;
 	padding: .5rem 1rem;
-	padding-top: calc(var(--nav-height));
+	/* padding-top: calc(var(--nav-height)); */
 }
 
 p {
