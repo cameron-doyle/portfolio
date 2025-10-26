@@ -2,21 +2,20 @@
 
 :root {
 	font-size: 12px;
-	font-family: Arial, Helvetica, sans-serif;
 	--nav-height: 5rem;
 }
 
-html {
+* {
+	font-family: Arial, Helvetica, sans-serif;
 	box-sizing: border-box;
 	color: white;
-	background-color: rgb(44, 49, 61);
 	margin: 0;
 	padding: 0;
 	border: none;
 }
 
-body {
-	margin: 0;
+html {
+	background-color: rgb(44, 49, 61);
 }
 
 /* Navbar */
@@ -24,19 +23,108 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
+
 	height: var(--nav-height);
 	width: 100vw;
-	background-color: #007ea7;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#navContainer {
+	width: 5rem;
+	height: 75%;
+	
+	border-radius: 6rem 0 0 10rem;
+	padding: 0 .33rem 0 1.33rem;
+	
+	-webkit-box-shadow: 0 .3rem .2rem 0 #0000004f;
+	box-shadow: 0 .3rem .2rem 0 #0000004f;
+	
+	overflow: hidden;
+
+	transition: width .75s ease, border-radius 1s ease;
+}
+
+#navContainer.open {
+	width: 100vw;
+	border-radius: 0;
+	animation: none;
+	background-size: initial;
+	background: linear-gradient(-45deg, #007ea7);
+}
+
+#navButton {
+	height: 100%;
+	float: right;
+}
+
+.vibratingColor {
+	background: linear-gradient(-45deg, #007ea7, #e30f0f, #d37d06, #07c760);
+	background-size: 200rem 200rem;
+	animation: gradient 10s linear infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 100% 100%;
+	}
+	12.5% {
+		background-position: 50% 100%;
+	}
+	25% {
+		background-position: 0% 100%;
+	}
+	37.5% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 0% 0%;
+	}
+	62.5% {
+		background-position: 50% 0%;
+	}
+	75% {
+		background-position: 100% 0%;
+	}
+	87.5% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 100% 100%;
+	}
 }
 
 .navbar {
 	list-style-type: none;
-	padding: 0;
-	float: right;
+
+	display: inline-flex;
+	width: calc(100% - var(--nav-height));
+	height: 100%;
+	overflow: hidden;
+
+	flex-direction: row;
+	align-items: center;
+}
+
+#navContainer.open a {
+	opacity: 1;
 }
 
 .navbar a {
 	all: unset;
+
+	margin-right: 1rem;
+	font-size: 1.3rem;
+	
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+.lastItem {
+	margin-right: 0 !important;
 }
 
 nav a:visited {
@@ -46,9 +134,9 @@ nav a:visited {
 
 /* Content */
 .content {
-	margin-top: calc(var(--nav-height));
 	width: 100vw;
 	padding: .5rem 1rem;
+	padding-top: calc(var(--nav-height));
 }
 
 p {
