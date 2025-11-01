@@ -3,6 +3,9 @@
 :root {
 	font-size: 12px;
 	--nav-height: 5rem;
+	--nav-top-margin: 3rem;
+	--background-color: #2c313d;
+	--primary-color: #007ea7;
 }
 
 * {
@@ -15,13 +18,29 @@
 }
 
 html {
-	background-color: rgb(44, 49, 61);
+	background-color: var(--background-color);
+}
+
+h1.title {
+	position: fixed;
+	top: 0;
+	padding: 0 1rem;
+	padding-right: 2rem;
+	padding-left: 1.5rem;
+	border-radius: 0 4rem 10rem 0; 
+	line-height: calc(var(--nav-top-margin) + .125 * var(--nav-top-margin));
+
+	background-color: var(--primary-color);
+	/* background: linear-gradient(135deg, var(--primary-color), var(--background-color)); */
+	/* background: radial-gradient(circle,rgba(0, 126, 167, .66) 0%, rgba(0, 126, 167, .66) 33%, rgba(0, 126, 167, 0.66) 60%, rgba(0, 126, 167, 0.5) 95%); */
+	background-position: -100% -300%;
+	background-size: 200% 400%;
 }
 
 /* Navbar */
 nav {
 	position: fixed;
-	top: 3rem;
+	top: var(--nav-top-margin);
 	left: 0;
 
 	height: var(--nav-height);
@@ -31,6 +50,10 @@ nav {
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
+}
+
+p {
+	margin-bottom: .5rem;
 }
 
 #navContainer {
@@ -53,7 +76,8 @@ nav {
 	border-radius: 0;
 	animation: none;
 	background-size: initial;
-	background: linear-gradient(-45deg, #007ea7);
+	background: linear-gradient(-45deg, var(--primary-color));
+	
 }
 
 /* SVG */
@@ -79,7 +103,7 @@ nav {
 /* END SVG */
 
 .vibratingColor {
-	background: linear-gradient(-45deg, #007ea7, #e30f0f, #d37d06, #07c760);
+	background: linear-gradient(-45deg, var(--primary-color), #e30f0f, #d37d06, #07c760);
 	background-size: 200rem 200rem;
 	animation: gradient 10s linear infinite;
 }
@@ -153,7 +177,7 @@ nav a:visited {
 .content {
 	width: 100vw;
 	padding: .5rem 1rem;
-	/* padding-top: calc(var(--nav-height)); */
+	padding-top: calc(var(--nav-top-margin) + .25 * var(--nav-top-margin));
 }
 
 p {

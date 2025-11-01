@@ -1,4 +1,4 @@
-var navOpen = false;
+var navOpen = true;
 
 $(function () {
 	console.log("Hello world")
