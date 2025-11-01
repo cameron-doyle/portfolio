@@ -1,4 +1,4 @@
-var navOpen = true;
+var navOpen = false;
 
 $(function () {
 	console.log("Hello world")
@@ -6,14 +6,31 @@ $(function () {
 	$("#navButton").on("click", () => {
 		navOpen = !navOpen;
 
-		if(navOpen) {
-			$("#navContainer").addClass("open");
+		if (navOpen) {
+			$("#mainNav").addClass("open");
 			$("#navButton").attr('aria-expanded', String(navOpen));
 		}
 		else {
-			$("#navContainer").removeClass("open");
+			$("#mainNav").removeClass("open");
 			$("#navButton").attr('aria-expanded', String(navOpen));
 		}
 	})
 
+	SetupTitleObserver()
 })
+
+
+
+function SetupTitleObserver() {
+	const title = document.querySelector('.title');
+
+	window.addEventListener('scroll', () => {
+		const rect = title.getBoundingClientRect();
+
+		if (rect.top <= 0) {
+			title.classList.add('stuck');
+		} else {
+			title.classList.remove('stuck');
+		}
+	});
+}

@@ -6,7 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+	 <script src="js/jquery.js"></script>
 	<script src="js/main.js"></script>
 
 	<link rel="stylesheet" href="css/main.css">
@@ -15,12 +16,16 @@
 </head>
 
 <body>
-	<nav role="navigation" aria-label="Main Navigation">
-		<div id="navContainer" class="vibratingColor open">
+	<nav id="mainNav" role="navigation" aria-label="Main Navigation">
+		<div id="navInterceptor"></div>
+
+		<div id="navContainer">
 
 			<svg id="navButton" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
-				<rect id="bar1" x="120" y="222.5" rx="40" ry="40" width="400" height="55" fill="white" />
-				<rect id="bar2" x="120" y="362.5" rx="40" ry="40" width="400" height="55" fill="white" />
+				<rect id="bar1" x="120" y="222.5" width="400" height="55" fill="white"
+					transform="skewX(-45) translate(-70)" />
+				<rect id="bar2" x="120" y="362.5" width="400" height="55" fill="white"
+					transform="skewX(-45) translate(70)" />
 			</svg>
 
 			<ul class="navbar hidden">
@@ -32,13 +37,16 @@
 		</div>
 	</nav>
 
+	<div class="mainPortait">
+		<img src="images/portrait.jpg" alt="Photo of Cameron Doyle">
+	</div>
 	<h1 class="title">Cameron Doyle</h1>
+
 	<div class="content">
-
-
 		<p>Website under construction</p>
 		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quia fugit accusamus rem sed unde iure quo
-			maiores eveniet corrupti modi fuga quod, illo magni voluptatem laborum, exercitationem in beatae.<br>Lorem ipsum
+			maiores eveniet corrupti modi fuga quod, illo magni voluptatem laborum, exercitationem in beatae.<br>Lorem
+			ipsum
 			dolor sit, amet consectetur adipisicing elit. Et quia fugit accusamus rem sed unde iure quo maiores eveniet
 			corrupti modi fuga quod, illo magni voluptatem laborum, exercitationem in beatae.Lorem ipsum dolor sit, amet
 			consectetur adipisicing elit. Et quia fugit accusamus rem sed unde iure quo maiores eveniet corrupti modi
