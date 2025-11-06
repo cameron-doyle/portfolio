@@ -37,8 +37,8 @@ html {
 
 h1#title {
 	position: sticky;
-	top: 0;
-	left: 0;
+	top: -1px;
+	left: -1px;
 	display: inline-block;
 	padding: 0 1rem;
 	padding-right: 3rem;
@@ -111,20 +111,17 @@ p {
 
 	transition: height 1s ease;
 
-	opacity: .7;
-	/* background-color: orange; */
-	/* mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) calc(60% + 1.5px)); */
-	/* clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 100%, 0% 100%); */
+	/* opacity: .7; */
 }
 
 #navInterceptor2.open {
-	height: calc(var(--title-height) / 1.1);
+	height: calc(var(--title-height) / 1.15);
 }
 
 #navContainer {
 	position: fixed;
-	top: 0;
-	right: 0;
+	top: -1px;
+	right: -1px;
 
 	width: 5.5rem; /* Animation overrides this */
 	height: var(--title-height);
