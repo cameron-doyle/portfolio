@@ -80,7 +80,7 @@ p {
 
 #navInterceptor {
 	position: fixed;
-	top: 0;
+	top: -1px;
 	left: -10vw;
 
 	height: var(--title-height);
