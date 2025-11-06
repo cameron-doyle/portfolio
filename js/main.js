@@ -20,7 +20,6 @@ $(function () {
 })
 
 
-
 function SetupTitleObserver() {
 	const title = document.querySelector('.title');
 

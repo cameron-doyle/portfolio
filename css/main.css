@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
 /* Start Mobile (default) */
 
 :root {
@@ -43,18 +45,19 @@ h1.title {
 	line-height: var(--title-height);
 	min-width: fit-content;
 	width: 19rem;
+	z-index: 8;
 
 	background-color: hsla(195, 100%, 33%, 0.75);
 	transition: background-color .5s ease, width 1s ease;
-	mask:
-    	linear-gradient(75deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px));
+	/* mask: linear-gradient(75deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px)); */
+	clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 100%, 0% 100%);
 }
 
 .title.stuck {
-	mask:
-    	linear-gradient(105deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px));
+	/* mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px)); */
+	/* clip-path: polygon(0 0, 100% 0%, calc(100% - 1rem) 100%, 0% 100%); */
 	background-color: hsla(195, 100%, 33%, 1);
-	width: 90vw;
+	width: calc(100vw - 5.5rem - 1rem);
 }
 
 
@@ -66,7 +69,8 @@ nav {
 	top: 0;
 	left: 0;
 
-	z-index: 2;
+	z-index: 10;
+
 }
 
 p {
@@ -81,12 +85,13 @@ p {
 	height: var(--title-height);
 	width: 0rem;
 
-	z-index: 1;
+	z-index: 10;
 
-	transition: width .75s ease;
+	transition: width 1s ease;
 
 	background-color: var(--primary-color);
-	mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) calc(60% + 1.5px));
+	/* mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) calc(60% + 1.5px)); */
+	clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 100%, 0% 100%);
 }
 
 #mainNav.open #navInterceptor {
@@ -97,23 +102,25 @@ p {
 	position: fixed;
 	top: 0;
 	right: 0;
-	
-	width: 5rem;
+
+	width: 5.5rem; /* Animation overrides this */
 	height: var(--title-height);
 
-	z-index: 2;
+	z-index: 11;
 	overflow: hidden;
 
 	padding: 0 .33rem 0 1.33rem;
-	
+
 	background-color: var(--primary-color);
-	mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) calc(80% + 1.5px));
+	/* mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) calc(80% + 1.5px)); */
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 2rem 100%);
+
 	animation: shrink .75s ease both;
 }
 
 #mainNav.open #navContainer {
 	width: 100vw;
-	mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 94%, rgba(0, 0, 0, 0) calc(94% + 1.5px));
+	/* mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 94%, rgba(0, 0, 0, 0) calc(94% + 1.5px)); */
 	animation: expand .75s ease both;
 }
 
@@ -136,35 +143,33 @@ p {
 	0% {
 		padding-left: 5rem;
 		width: 5rem;
-		mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) calc(80% + 1.5px));
 	}
+
 	50% {
 		padding-left: 5rem;
-		mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 87%, rgba(0, 0, 0, 0) calc(87% + 1.5px));
 	}
+
 	90% {
 		padding-left: 3rem;
 		width: 100vw;
-		mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 97%, rgba(0, 0, 0, 0) calc(97% + 1.5px));
 	}
+
 	100% {
 		width: 100vw;
-		mask: linear-gradient(-90deg, rgba(0, 0, 0, 1) 125%, rgba(0, 0, 0, 0) calc(125% + 1.5px));
 	}
 }
 
 @keyframes shrink {
 	0% {
 		width: 100vw;
-		mask: linear-gradient(-90deg, rgba(0, 0, 0, 1) 125%, rgba(0, 0, 0, 0) calc(125% + 1.5px));
 	}
+
 	50% {
 		width: 100vw;
-		mask: linear-gradient(-90deg, rgba(0, 0, 0, 1) 125%, rgba(0, 0, 0, 0) calc(125% + 1.5px));
 	}
+
 	100% {
-		width: 5rem;
-		mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) calc(80% + 1.5px));
+		width: 5.5rem;
 	}
 }
 
@@ -175,17 +180,18 @@ p {
 	float: right;
 }
 
-#bar1, #bar2 {
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
+#bar1,
+#bar2 {
+	transform-origin: center;
+	transition: transform 0.3s ease-in-out;
 }
 
 #mainNav.open #bar1 {
-  transform: rotate(45deg) translate(0, 70px);
+	transform: rotate(45deg) translate(0, 70px);
 }
 
 #mainNav.open #bar2 {
-  transform: rotate(-45deg) translate(0, -70px);
+	transform: rotate(-45deg) translate(0, -70px);
 }
 
 /* END SVG */
@@ -247,9 +253,12 @@ p {
 
 	margin-right: 1rem;
 	font-size: 1.3rem;
-	
+
 	opacity: 0;
 	transition: opacity 1s ease;
+
+	font-size: 1.5rem;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
 
 .lastItem {
@@ -264,8 +273,7 @@ nav a:visited {
 /* Content */
 .content {
 	width: 100%;
-	padding: .5rem 1rem;
-	padding-top: calc(var(--nav-top-margin) + .25 * var(--nav-top-margin));
+	padding: 1rem;
 }
 
 p {
@@ -273,15 +281,86 @@ p {
 }
 
 h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
+	font-weight: normal;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
 
 h2 {
-	font-size: 1.5rem;
+	font-size: 2.25rem;
+	font-weight: normal;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
 
 h3 {
-	font-size: 1rem;
+	font-size: 2rem;
+	font-weight: normal;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
+}
+
+h4 {
+	font-size: 1.75rem;
+	font-weight: normal;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
+}
+
+.card-collection {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	justify-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.card-collection .feature-card {
+	margin: 0;
+
+	clip-path: none;
+}
+
+.section-title {
+	width: 100%;
+	padding-left: 1.5rem;
+	background-color: hsla(195, 100%, 33%, 0.75);
+
+	/* If this is changed, the clip path will have to be adjusted so the angle is correct, DEFAULT: 2.5rem */
+	line-height: 2.5rem; 
+
+	/* the 3rd value will rem is calibrated to the line height. DEFAULT: calc(100% - 6.1rem) */
+	clip-path: polygon(0 0, calc(100% - 6.1rem) 0, calc(100% - 4.5rem) 100%, 0% 100%); 
+}
+
+.feature-card {
+	display: inline-block;
+	position: relative;
+
+	margin-bottom: 1rem;
+	/* The .feature-title clip-path is calibrated to this top margin. DEFAULT: 1rem */
+	margin-top: 1rem;
+
+	clip-path: polygon(calc(100% - 4rem) 0, 0 0, 0 calc(100% - 6rem), 4rem 100%, 100% 100%, 100% 6rem);
+}
+
+.feature-card img {
+	display: block;
+	width: 100%;
+}
+
+.feature-card :is(h1, h2, h3, h4) {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	text-align: right;
+
+	padding-right: 1.5rem;
+	line-height: 2.5rem;
+	width: 100%;
+
+	background-color: hsla(195, 100%, 33%, 0.75);
 }
 
 /* End Mobile */
