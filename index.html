@@ -16,7 +16,9 @@
 </head>
 
 <body>
-	<nav id="mainNav" aria-label="Main Navigation">
+	<div id="topOfPage"></div>
+	<div id="navInterceptor2" class="vibratingColor"></div>
+	<nav id="mainNav" class="site-nav" aria-label="Main Navigation">
 		<div id="navInterceptor"></div>
 
 		<div id="navContainer">
@@ -28,21 +30,21 @@
 					transform="skewX(-45) translate(70)" />
 			</svg>
 
-			<ul class="navbar hidden">
+			<ul class="nav-bar hidden">
 				<li><a href="#Home" aria-current="page">Home</a></li> <!-- Aria for current page -->
 				<li><a href="#Portfolio">Portfolio</a></li>
 				<li><a href="#About">About</a></li>
-				<li><a href="#Contacts" class="lastItem">Contacts</a></li>
+				<li><a href="#Contacts" class="last-item">Contacts</a></li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="mainPortait">
+	<div class="main-portrait">
 		<img src="images/portrait.webp" alt="Photo of Cameron Doyle">
 	</div>
-	<h1 class="title">Cameron Doyle</h1>
+	<h1 id="title">Cameron Doyle</h1>
 
-	<div id="Home" class="content">
+	<div id="homeWrapper" class="content">
 
 		<p>Greetings, I'm Cameron.</p>
 		<p>I make things — websites, apps, marmalades. I also like the outdoors, animals, and "spirited" driving in
@@ -238,6 +240,23 @@
 		</p>
 
 	</div>
-</body>
+
+	<footer role="contentinfo" aria-label="Site footer">
+		<nav class="footer-nav" aria-label="Footer">
+			<ul>
+				<li><a href="#Home" aria-current="page">Home</a></li>
+				<li><a href="#Portfolio">Portfolio</a></li>
+				<li><a href="#About">About</a></li>
+				<li><a href="#Contacts">Contacts</a></li>
+			</ul>
+		</nav>
+		<address>
+			<a href="mailto:dev.camerondoyle@gmail.com">dev.camerondoyle@gmail.com</a>
+		</address>
+		<p><small>&copy; <span id="currentYear">2021</span> Cameron Doyle. All rights reserved.</small></p>
+		<p><a href="#topOfPage">Back to top</a></p>
+	</footer>
+
+	</body>
 
 </html>
