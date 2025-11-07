@@ -31,8 +31,9 @@ jobs:
         echo "name=Release $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
 
     - name: Create GitHub release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
+        token: ${{ secrets.GH_PAT }}
         tag_name: ${{ steps.meta.outputs.tag }}
         name: ${{ steps.meta.outputs.name }}
         body: |
@@ -41,10 +42,6 @@ jobs:
           ```bash
           docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.digest.outputs.digest }}          
           ```
-
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-
     - name: Push to DigitalOcean
       run: |
         curl -X PATCH "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
