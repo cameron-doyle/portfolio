@@ -41,7 +41,7 @@ jobs:
           Deployed image:
 
           ```bash
-          docker pull ${{ github.event.inputs.image_tag  }}
+          docker pull ${{ steps.digest.outputs.digest }}
           ```
     - name: Push to DigitalOcean
       run: |
