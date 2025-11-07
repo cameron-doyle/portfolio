@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Log in to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: cameron-doyle
+        password: ${{ secrets.GH_PAT }}
+
+    - name: Pull latest image
+      run: docker pull ghcr.io/cameron-doyle/portfolio:latest
+
+    - name: Get image digest
+      id: digest
+      run: |
+        DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/cameron-doyle/portfolio:latest)
+        echo "digest=$DIGEST" >> $GITHUB_OUTPUT
+
+    - name: Set release metadata
+      id: meta
+      run: |
+        echo "tag=release-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+        echo "name=Release $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.meta.outputs.tag }}
+        name: ${{ steps.meta.outputs.name }}
+        body: |
+          Deployed image:
+
+          ```bash
+          docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.digest.outputs.digest }}          
+          ```
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push to DigitalOcean
+      run: |
+        curl -X PATCH "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
+        -H "Authorization: Bearer ${{ secrets.DIGITAL_OCEAN_API_TOKEN }}" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "spec": {
+              "services": [
+                {
+                  "name": "cameron-doyle-portfolio",
+                  "image": {
+                    "registry_type": "GHCR",
+                    "registry": "cameron-doyle",
+                    "repository": "portfolio",
+                    "digest": "'"${{ steps.digest.outputs.digest }}"'"
+                  }
+                }
+              }
+            ]
+          }
+        }'
