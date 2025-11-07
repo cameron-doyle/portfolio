@@ -383,9 +383,8 @@ footer a {
 	text-decoration: none;
 }
 
-footer a[aria-current="page"],
-footer a:focus-visible,
-footer a:hover {
+a[aria-current="page"],
+a:hover {
 	text-decoration: underline;
 }
 

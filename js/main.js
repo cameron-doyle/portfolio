@@ -14,6 +14,10 @@ $(function () {
 	if (footerYear) {
 		footerYear.text(new Date().getFullYear());
 	}
+
+	window.addEventListener('hashchange', Navigate)
+
+	Navigate() //Navigate on page load
 })
 
 function OpenNav() {
@@ -26,6 +30,33 @@ function CloseNav() {
 	navOpen = false;
 	$("#mainNav").removeClass("open")
 	$("#navButton").attr('aria-expanded', String(navOpen))
+}
+
+function Navigate() {
+	let page = location.hash
+
+	//If no hash, set hash and exit
+	if (!page) {
+		location.hash = "#Home"
+		return //This prevents the code executing twice from the event listener trigger
+	}
+
+	ShowPage(page)
+}
+
+function ShowPage(page) {
+	$("#Home").hide()
+	$("#Portfolio").hide()
+	$("#About").hide()
+	$("#Contacts").hide()
+
+	$(`a[href*="#Home"]`).removeAttr("aria-current");
+	$(`a[href*="#Portfolio"]`).removeAttr("aria-current");
+	$(`a[href*="#About"]`).removeAttr("aria-current");
+	$(`a[href*="#Contacts"]`).removeAttr("aria-current");
+
+	$(page).show()
+	$(`a[href*="${page}"]`).attr("aria-current","page");
 }
 
 
