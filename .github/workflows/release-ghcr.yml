@@ -42,6 +42,9 @@ jobs:
           docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.digest.outputs.digest }}          
           ```
 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
     - name: Push to DigitalOcean
       run: |
         curl -X PATCH "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
