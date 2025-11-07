@@ -2,16 +2,10 @@ var navOpen = false;
 
 $(function () {
 	$("#navButton").on("click", () => {
-		navOpen = !navOpen;
-
-		if (navOpen) {
-			$("#mainNav").addClass("open")
-			$("#navButton").attr('aria-expanded', String(navOpen))
-		}
-		else {
-			$("#mainNav").removeClass("open")
-			$("#navButton").attr('aria-expanded', String(navOpen))
-		}
+		if (navOpen)
+			CloseNav()
+		else
+			OpenNav()
 	})
 
 	SetupTitleObserver()
@@ -22,11 +16,24 @@ $(function () {
 	}
 })
 
+function OpenNav() {
+	navOpen = true;
+	$("#mainNav").addClass("open")
+	$("#navButton").attr('aria-expanded', String(navOpen))
+}
+
+function CloseNav() {
+	navOpen = false;
+	$("#mainNav").removeClass("open")
+	$("#navButton").attr('aria-expanded', String(navOpen))
+}
+
 
 function SetupTitleObserver() {
 	const title = document.querySelector('#title');
 
 	window.addEventListener('scroll', () => {
+		CloseNav()
 		const rect = title.getBoundingClientRect();
 
 		if (rect.top <= 0) {

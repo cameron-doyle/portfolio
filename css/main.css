@@ -50,15 +50,12 @@ h1#title {
 
 	background-color: hsla(195, 100%, 33%, 0.75);
 	transition: background-color .5s ease, width 1s ease;
-	/* mask: linear-gradient(75deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px)); */
 	clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 100%, 0% 100%);
 }
 
 #title.stuck {
-	/* mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) calc(90% + 1.5px)); */
-	/* clip-path: polygon(0 0, 100% 0%, calc(100% - 1rem) 100%, 0% 100%); */
 	background-color: hsla(195, 100%, 33%, 1);
-	width: calc(100vw - 5.5rem - 1rem);
+	width: calc(100vw - 5.5rem - 0rem);
 }
 
 
@@ -91,7 +88,6 @@ p {
 	transition: width 1s ease;
 
 	background-color: var(--primary-color);
-	/* mask: linear-gradient(105deg, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) calc(60% + 1.5px)); */
 	clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 100%, 0% 100%);
 }
 
@@ -111,7 +107,7 @@ p {
 
 	transition: height 1s ease;
 
-	/* opacity: .7; */
+	opacity: .7;
 }
 
 #navInterceptor2.open {
@@ -132,7 +128,6 @@ p {
 	padding: 0 .33rem 0 1.33rem;
 
 	background-color: var(--primary-color);
-	/* mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) calc(80% + 1.5px)); */
 	clip-path: polygon(0 0, 100% 0%, 100% 100%, 2rem 100%);
 
 	animation: shrink .75s ease both;
@@ -140,24 +135,8 @@ p {
 
 #mainNav.open #navContainer {
 	width: 100vw;
-	/* mask: linear-gradient(-75deg, rgba(0, 0, 0, 1) 94%, rgba(0, 0, 0, 0) calc(94% + 1.5px)); */
 	animation: expand .75s ease both;
 }
-
-/* @keyframes expand {
-	0% {
-		width: 5rem;
-		padding-left: 1.33rem;
-	}
-	75% {
-		width: 100vw;
-		padding-left: 2rem;
-	}
-	100% {
-		width: 125vw;
-		padding-left: calc(25vw + 1.33rem);
-	}
-} */
 
 @keyframes expand {
 	0% {
