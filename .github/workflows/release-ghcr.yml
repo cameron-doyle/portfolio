@@ -44,7 +44,7 @@ jobs:
           Deployed image:
 
           ```bash
-          docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.digest.outputs.digest }}
+          docker pull ${{ steps.digest.outputs.full_digest }}
           ```
     - name: Push to DigitalOcean
       run: |
