@@ -21,7 +21,11 @@ jobs:
     - name: Get image digest
       id: digest
       run: |
-        DIGEST=$(docker inspect --format='{{.Digest}}' ghcr.io/cameron-doyle/portfolio:latest)
+        FULL_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/cameron-doyle/portfolio:latest)
+        DIGEST=${FULL_DIGEST#*@}
+        echo "Full image reference: $FULL_DIGEST"
+        echo "Stripped digest: $DIGEST"
+        echo "digest=$DIGEST" >> $GITHUB_OUTPUT
 
     - name: Set release metadata
       id: meta

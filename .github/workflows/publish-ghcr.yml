@@ -28,6 +28,7 @@ jobs:
           no-cache: true
           tags: |
             ghcr.io/cameron-doyle/portfolio:latest
+            ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
 
       - name: Purge cloudflare cache
         uses: jakejarvis/cloudflare-purge-action@master
