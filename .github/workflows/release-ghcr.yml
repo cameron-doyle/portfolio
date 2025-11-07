@@ -21,8 +21,7 @@ jobs:
     - name: Get image digest
       id: digest
       run: |
-        DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/cameron-doyle/portfolio:latest)
-        echo "digest=$DIGEST" >> $GITHUB_OUTPUT
+        DIGEST=$(docker inspect --format='{{.Digest}}' ghcr.io/cameron-doyle/portfolio:latest)
 
     - name: Set release metadata
       id: meta
@@ -41,11 +40,11 @@ jobs:
           Deployed image:
 
           ```bash
-          docker pull ${{ steps.digest.outputs.digest }}
+          docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.digest.outputs.digest }}
           ```
     - name: Push to DigitalOcean
       run: |
-        curl -X PATCH "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
+        curl -X PUT "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
         -H "Authorization: Bearer ${{ secrets.DIGITAL_OCEAN_API_TOKEN }}" \
         -H "Content-Type: application/json" \
         -d '{
