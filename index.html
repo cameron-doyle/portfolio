@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-	<script src="js/jquery.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<!-- <script src="js/jquery.js"></script> -->
 	<script src="js/main.js"></script>
 
 	<link rel="stylesheet" href="css/main.css">
@@ -32,8 +32,10 @@
 
 			<ul class="nav-bar hidden">
 				<li><a href="#Home">Home</a></li>
-				<li><a href="#Portfolio">Portfolio</a></li>
-				<li><a href="#About">About</a></li>
+				<li><p class="disabled-item">Portfolio</p></li>
+				<!-- <li><a href="#Portfolio">Portfolio</a></li> -->
+				<li><p class="disabled-item">About</p></li>
+				<!-- <li><a href="#About">About</a></li> -->
 				<li><a href="#Contacts" class="last-item">Contacts</a></li>
 			</ul>
 		</div>
@@ -47,196 +49,40 @@
 	<!-- ! Home Page ! -->
 	<div id="Home" class="content">
 
-		<p>Salutations, I'm Cameron.</p>
-		<p>I make things: websites, apps, marmalades. I also like the outdoors, animals, and late night drives to random
+		<p style="margin-top: 1rem;">Hi, I'm Cameron.</p>
+		<p>I make things: websites, apps, jams, bad financial decisions. I also like the outdoors, animals, long walks on the beach, and late night drives to random
 			locations.</p>
-		<p>If any of that interests you, have a look around.</p>
+		<p>My primary role is as a software engineer for a payroll company.</p>
 
-		<h2 class="section-title" style="margin-top: 1rem;">Featured Projects</h2>
-		<div class="feature-card">
-			<img src="images/portrait.webp" alt="Featured Project">
-			<h2>Project Title</h2>
-		</div>
-
+		<h2 class="section-title" style="margin-top: 3rem;">Featured Photos</h2>
 		<div class="card-collection">
-			<div class="feature-card">
-				<img src="images/portrait.webp" alt="Featured Project">
-				<h4>Project Title</h4>
+			<div class="feature-card link-card" link="https://www.instagram.com/mr_cdoyle/">
+				<img src="images/glass-water.webp" alt="Featured Project">
+				<h4>4am Sydney</h4>
 			</div>
 
-			<div class="feature-card">
-				<img src="images/portrait.webp" alt="Featured Project">
-				<h4>Project Title</h4>
+			<div class="feature-card link-card" link="https://www.instagram.com/p/DCt3H_NT7qxkIxsHqZTu1ZIUFSrr2bAUBHVZ5g0/?img_index=2">
+				<img src="images/canopy.webp" alt="Featured Project">
+				<h4>Blue Mountains</h4>
 			</div>
 
-			<div class="feature-card">
-				<img src="images/portrait.webp" alt="Featured Project">
-				<h4>Project Title</h4>
+			<div class="feature-card link-card" link="https://www.instagram.com/p/DOXaa_6iegc/?img_index=1">
+				<img src="images/jam.webp" alt="Featured Project">
+				<h4>Lemon Marmalade</h4>
 			</div>
 
-
+			<div class="feature-card link-card" link="https://www.instagram.com/p/DIq9EBTpL4qNkZtJOK1PjcboOaS1TWeCdh-P7c0/?img_index=1">
+				<img src="images/car1.webp" alt="Featured Project">
+				<h4>1982 Porsche 911</h4>
+			</div>
 		</div>
 
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
 
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-			Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-			Nisi ut aliquip ex ea commodo consequat.<br>
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-			Dolore eu fugiat nulla pariatur.<br>
-			Excepteur sint occaecat cupidatat non proident.<br>
-			Sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-			Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.<br>
-			Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.<br>
-			Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.<br>
-			Donec sollicitudin molestie malesuada.<br>
-			Pellentesque in ipsum id orci porta dapibus.<br>
-			Nulla quis lorem ut libero malesuada feugiat.<br>
-			Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.<br>
-			Vivamus suscipit tortor eget felis porttitor volutpat.<br>
-			Nulla porttitor accumsan tincidunt.<br>
-			Cras ultricies ligula sed magna dictum porta.<br>
-			Proin eget tortor risus.<br>
-			Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-		</p>
+		<h2 class="section-title" style="margin-top: 4rem;">Featured Projects</h2>
+		<div class="feature-card link-card" link="https://github.com/cameron-doyle">
+			<img src="images/coming_soon.png" alt="Featured Project">
+			<h2>Really soon...</h2>
+		</div>
 
 	</div>
 
@@ -254,7 +100,31 @@
 
 	<!-- ! Contacts Page ! -->
 	<div id="Contacts" class="content">
-		<h2 class="section-title" style="margin-top: 1rem;">Contacts</h2>
+		<h2 class="section-title" style="margin-top: 1rem; margin-bottom: 2rem;">Contacts</h2>
+
+		<div class="contact-card link-card" link="https://github.com/cameron-doyle">
+			<h3>Github</h3>
+			<img src="images/github.svg">
+			<p>github.com/cameron-doyle</p>
+		</div>
+
+		<div class="contact-card link-card" link="https://www.linkedin.com/in/dev-camerondoyle/">
+			<h3>Linkedin</h3>
+			<img src="images/linkedin.svg">
+			<p>linkedin.com/in/dev-camerondoyle</p>
+		</div>
+
+		<div class="contact-card link-card" link="https://www.instagram.com/mr_cdoyle/">
+			<h3>Instagram</h3>
+			<img src="images/insta.svg">
+			<p>instagram.com/mr_cdoyle</p>
+		</div>
+
+		<div class="contact-card link-card" link="mailto:dev.camerondoyle@gmail.com" style="margin-bottom: 3rem;">
+			<h3>Email</h3>
+			<img src="images/email.svg">
+			<p>dev.camerondoyle@gmail.com</p>
+		</div>
 
 	</div>
 
@@ -262,13 +132,15 @@
 		<nav class="footer-nav" aria-label="Footer">
 			<ul>
 				<li><a href="#Home">Home</a></li>
-				<li><a href="#Portfolio">Portfolio</a></li>
-				<li><a href="#About">About</a></li>
+				<li><p class="disabled-item">Portfolio</p></li>
+				<!-- <li><a href="#Portfolio">Portfolio</a></li> -->
+				<li><p class="disabled-item">About</p></li>
+				<!-- <li><a href="#About">About</a></li> -->
 				<li><a href="#Contacts">Contacts</a></li>
 			</ul>
 		</nav>
 		<address>
-			<a href="mailto:dev.camerondoyle@gmail.com">dev.camerondoyle@gmail.com</a>
+			<a href="mailto:dev.camerondoyle@gmail.com" selectable>dev.camerondoyle@gmail.com</a>
 		</address>
 		<p><small>&copy; <span id="currentYear">2021</span> Cameron Doyle. All rights reserved.</small></p>
 		<p><a href="#topOfPage">Back to top</a></p>

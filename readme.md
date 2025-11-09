@@ -6,3 +6,5 @@
 3. complete about page
 4. complete about contacts
 5. Enable disabled home page content
+6. Fix release pipline not pushing changes to digital ocean
+7. Review the screen readableness of clickable divs, might have to redo these to be inside an a tag.

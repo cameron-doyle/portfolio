@@ -1,4 +1,5 @@
-var navOpen = false;
+let navOpen = false;
+let previousPage
 
 $(function () {
 	$("#navButton").on("click", () => {
@@ -9,6 +10,8 @@ $(function () {
 	})
 
 	SetupTitleObserver()
+	SetupFeatureCardLinks()
+	CheckScreenSize()
 
 	const footerYear = $("#currentYear")
 	if (footerYear) {
@@ -41,6 +44,13 @@ function Navigate() {
 		return //This prevents the code executing twice from the event listener trigger
 	}
 
+	//If hash is invalid, set hash to previous
+	if (page != "#Home" && page != "#Portfolio" && page != "#About" && page != "#Contacts") {
+		page = (previousPage) ? previousPage:"#Home"
+		location.hash = page
+		return //This prevents the code executing twice from the event listener trigger
+	}
+
 	ShowPage(page)
 }
 
@@ -56,7 +66,9 @@ function ShowPage(page) {
 	$(`a[href*="#Contacts"]`).removeAttr("aria-current");
 
 	$(page).show()
-	$(`a[href*="${page}"]`).attr("aria-current","page");
+	$(`a[href*="${page}"]`).attr("aria-current", "page");
+
+	previousPage = page
 }
 
 
@@ -75,4 +87,19 @@ function SetupTitleObserver() {
 			$("#navInterceptor2").removeClass("open")
 		}
 	});
+}
+
+function SetupFeatureCardLinks() {
+	$('.link-card[link]').on('click', function() {
+		const url = $(this).attr('link');
+		if (url) {
+			window.open(url, '_blank');
+		}
+	});
+}
+
+function CheckScreenSize() {
+	if (window.innerWidth > 700) {
+		alert('This website is optimized for mobile devices currently.');
+	}
 }

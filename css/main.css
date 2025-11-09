@@ -8,7 +8,9 @@
 	--nav-height: 5rem;
 	--nav-top-margin: 3rem;
 	--background-color: #2c313d;
+	--background-color-ligher: #41444d;
 	--primary-color: #007ea7;
+	--secondary-color: #161d24;
 	--title-height: calc(var(--nav-top-margin) + .125 * var(--nav-top-margin));
 }
 
@@ -23,6 +25,13 @@
 
 html {
 	background-color: var(--background-color);
+	min-height: 100vh;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .main-portrait {
@@ -59,7 +68,6 @@ h1#title {
 }
 
 
-/* Navbar */
 .site-nav {
 	width: 100vw;
 
@@ -119,7 +127,8 @@ p {
 	top: -1px;
 	right: -1px;
 
-	width: 5.5rem; /* Animation overrides this */
+	width: 5.5rem;
+	/* Animation overrides this */
 	height: var(--title-height);
 
 	z-index: 11;
@@ -205,27 +214,35 @@ p {
 	0% {
 		background-position: 100% 100%;
 	}
+
 	12.5% {
 		background-position: 50% 100%;
 	}
+
 	25% {
 		background-position: 0% 100%;
 	}
+
 	37.5% {
 		background-position: 0% 50%;
 	}
+
 	50% {
 		background-position: 0% 0%;
 	}
+
 	62.5% {
 		background-position: 50% 0%;
 	}
+
 	75% {
 		background-position: 100% 0%;
 	}
+
 	87.5% {
 		background-position: 100% 50%;
 	}
+
 	100% {
 		background-position: 100% 100%;
 	}
@@ -243,12 +260,16 @@ p {
 	align-items: center;
 }
 
-#mainNav.open a {
+#mainNav.open :is(a, p.disabled-item) {
 	opacity: 1;
 }
 
-.nav-bar a {
-	all: unset;
+.nav-bar :is(a, p.disabled-item) {
+	text-decoration: unset;
+	margin: 0;
+	padding: 0;
+
+	cursor: default;
 
 	margin-right: 1rem;
 	font-size: 1.3rem;
@@ -260,6 +281,34 @@ p {
 	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
 
+.nav-bar a:visited {
+	text-decoration: unset;
+	color: white;
+}
+
+.disabled-item {
+	user-select: none;
+	cursor: default;
+}
+
+a {
+	-webkit-user-drag: none;
+	user-select: none;
+}
+
+a[selectable] {
+	user-select: text !important;
+}
+
+.nav-bar a:hover {
+	cursor: pointer;
+}
+
+p.disabled-item {
+	color: #cacaca !important;
+	text-decoration: line-through !important;
+}
+
 .last-item {
 	margin-right: 0 !important;
 }
@@ -268,8 +317,6 @@ p {
 	color: inherit;
 }
 
-
-/* Content */
 .content {
 	width: 100%;
 	padding: 1rem;
@@ -292,13 +339,19 @@ h2 {
 }
 
 h3 {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	font-weight: normal;
 	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
 
 h4 {
-	font-size: 1.75rem;
+	font-size: 1.5rem;
+	font-weight: normal;
+	font-family: "Iceland", Arial, Helvetica, sans-serif;
+}
+
+h5 {
+	font-size: 1rem;
 	font-weight: normal;
 	font-family: "Iceland", Arial, Helvetica, sans-serif;
 }
@@ -326,10 +379,15 @@ h4 {
 	background-color: hsla(195, 100%, 33%, 0.75);
 
 	/* If this is changed, the clip path will have to be adjusted so the angle is correct, DEFAULT: 2.5rem */
-	line-height: 2.5rem; 
+	line-height: 2.5rem;
 
 	/* the 3rd value will rem is calibrated to the line height. DEFAULT: calc(100% - 6.1rem) */
-	clip-path: polygon(0 0, calc(100% - 6.1rem) 0, calc(100% - 4.5rem) 100%, 0% 100%); 
+	clip-path: polygon(0 0, calc(100% - 6.1rem) 0, calc(100% - 4.5rem) 100%, 0% 100%);
+}
+
+.link-card:hover {
+	cursor: pointer;
+	opacity: .6;
 }
 
 .feature-card {
@@ -348,7 +406,7 @@ h4 {
 	width: 100%;
 }
 
-.feature-card :is(h1, h2, h3, h4) {
+.feature-card :is(h1, h2, h3, h4, h5) {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -363,8 +421,33 @@ h4 {
 }
 
 
+.contact-card {
+	margin-top: 1rem;
+	background-color: var(--background-color-ligher);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.contact-card h3 {
+	padding: .5rem 1rem;
+	width: 100%;
+	background-color: var(--secondary-color);
+	clip-path: polygon(0 0, calc(100% - .5rem) 0, calc(100% - 4rem) 100%, 0% 100%);
+}
+
+.contact-card img {
+	height: 5rem;
+	margin: .5rem 1rem;
+
+	padding: .5rem;
+	background: radial-gradient(circle, white 0%, white 60%, var(--background-color-ligher) 70%);
+	border-radius: 20rem;
+}
+
+
 footer {
-	margin-top: 2rem;
+	margin-top: auto;
 	padding: 2rem 1rem;
 	background-color: rgba(0, 0, 0, 0.25);
 	border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -378,14 +461,14 @@ footer {
 	margin-bottom: 1rem;
 }
 
-footer a {
+footer :is(a, p.disabled-item) {
 	color: white;
 	text-decoration: none;
 }
 
 a[aria-current="page"],
 a:hover {
-	text-decoration: underline;
+	text-decoration: underline !important;
 }
 
 footer address {
@@ -396,8 +479,6 @@ footer address {
 footer small {
 	opacity: .75;
 }
-
-
 
 /* End Mobile */
 
