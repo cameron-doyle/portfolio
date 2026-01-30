@@ -39,16 +39,13 @@ function Navigate() {
 	let page = location.hash
 
 	//If no hash, set hash and exit
-	if (!page) {
-		location.hash = "#Home"
-		return //This prevents the code executing twice from the event listener trigger
-	}
+	if (!page)
+		history.replaceState(null, null, "#Home")
 
 	//If hash is invalid, set hash to previous
 	if (page != "#Home" && page != "#Portfolio" && page != "#About" && page != "#Contacts") {
 		page = (previousPage) ? previousPage:"#Home"
-		location.hash = page
-		return //This prevents the code executing twice from the event listener trigger
+		history.replaceState(null, null, page)
 	}
 
 	ShowPage(page)
