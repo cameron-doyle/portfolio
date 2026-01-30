@@ -60,10 +60,9 @@ jobs:
                     "registry_type": "GHCR",
                     "registry": "cameron-doyle",
                     "repository": "portfolio",
-                    "digest": "'"${{ steps.digest.outputs.digest }}"'"
+                    "digest": "${{ steps.digest.outputs.digest }}"
                   }
                 }
-              }
-            ]
-          }
-        }'
+              ]
+            }
+          }'
