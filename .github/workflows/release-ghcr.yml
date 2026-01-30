@@ -53,6 +53,7 @@ jobs:
         -H "Content-Type: application/json" \
         -d '{
           "spec": {
+              "name": "cameron-doyle-portfolio",
               "services": [
                 {
                   "name": "cameron-doyle-portfolio",
