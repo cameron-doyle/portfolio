@@ -54,6 +54,7 @@ jobs:
         -d '{
           "spec": {
               "name": "cameron-doyle-portfolio",
+              region: syd1,
               "services": [
                 {
                   "name": "cameron-doyle-portfolio",
