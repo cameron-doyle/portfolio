@@ -29,9 +29,3 @@ jobs:
           tags: |
             ghcr.io/cameron-doyle/portfolio:latest
             ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
-
-      - name: Purge cloudflare cache
-        uses: jakejarvis/cloudflare-purge-action@master
-        env:
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
