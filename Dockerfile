@@ -3,10 +3,10 @@ FROM joseluisq/static-web-server:latest
 ARG BUILD_VERSION
 
 COPY . /public
+COPY replace-version.sh /tmp/replace-version.sh
 
 # Replace BUILD_VERSION placeholder with actual version in HTML
-RUN VERSION="${BUILD_VERSION:-$(date +%s)}" && \
-    sed "s|BUILD_VERSION|${VERSION}|g" /public/index.html > /tmp/index.html && \
-    mv /tmp/index.html /public/index.html
+RUN chmod +x /tmp/replace-version.sh && \
+    /tmp/replace-version.sh "${BUILD_VERSION}"
 
 EXPOSE 80
