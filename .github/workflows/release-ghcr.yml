@@ -70,14 +70,14 @@ jobs:
                     "registry_type": "GHCR",
                     "registry": "cameron-doyle",
                     "repository": "portfolio",
-                    "digest": "${{ steps.digest.outputs.digest }}",
+                    "digest": "${{ steps.digest.outputs.digest }}"
                   }
                 }
               ]
             }
           }'
-      - name: Purge cloudflare cache
-        uses: jakejarvis/cloudflare-purge-action@master
-        env:
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+    - name: Purge cloudflare cache
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
