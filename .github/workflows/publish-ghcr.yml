@@ -26,6 +26,8 @@ jobs:
           file: ./Dockerfile
           push: true
           no-cache: true
+          build-args: |
+            BUILD_VERSION=${{ github.sha }}
           tags: |
             ghcr.io/cameron-doyle/portfolio:latest
             ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
