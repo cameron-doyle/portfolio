@@ -35,7 +35,6 @@ jobs:
         build-args: |
           BUILD_VERSION=${{ github.sha }}
         tags: |
-          ghcr.io/cameron-doyle/portfolio:latest
           ghcr.io/cameron-doyle/portfolio:prerelease
           ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
 
@@ -52,9 +51,9 @@ jobs:
         tag_name: ${{ steps.meta.outputs.tag }}
         name: ${{ steps.meta.outputs.name }}
         prerelease: true
-        make_latest: "false"
+        make_latest: "true"
         body: |
-          Prerelease image built from commit ${{ github.sha }}.
+          Pre-release image built from commit ${{ github.sha }}.
 
           ```bash
           docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.build.outputs.digest }}
