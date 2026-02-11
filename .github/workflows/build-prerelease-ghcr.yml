@@ -35,6 +35,7 @@ jobs:
         build-args: |
           BUILD_VERSION=${{ github.sha }}
         tags: |
+          ghcr.io/cameron-doyle/portfolio:latest
           ghcr.io/cameron-doyle/portfolio:prerelease
           ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
 
@@ -42,7 +43,7 @@ jobs:
       id: meta
       run: |
         echo "tag=prerelease-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
-        echo "name=Prerelease $(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        echo "name=Prerelease $(date +'%Y-%m-%d %H:%M')" >> $GITHUB_OUTPUT
 
     - name: Create GitHub prerelease
       uses: softprops/action-gh-release@v2
