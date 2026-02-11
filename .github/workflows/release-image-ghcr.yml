@@ -35,13 +35,6 @@ jobs:
           ghcr.io/cameron-doyle/portfolio:latest
           ghcr.io/cameron-doyle/portfolio:${{ github.sha }}
 
-    - name: Compute full image digest
-      id: digest
-      run: |
-        FULL_DIGEST="ghcr.io/cameron-doyle/portfolio@${{ steps.build.outputs.digest }}"
-        echo "Full image reference: $FULL_DIGEST"
-        echo "full_digest=$FULL_DIGEST" >> $GITHUB_OUTPUT
-
     - name: Set release metadata
       id: meta
       run: |
@@ -59,5 +52,5 @@ jobs:
           Deployed image:
 
           ```bash
-          docker pull ${{ steps.digest.outputs.full_digest }}
+          docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.build.outputs.digest }}
           ```
