@@ -54,3 +54,40 @@ jobs:
           ```bash
           docker pull ghcr.io/cameron-doyle/portfolio@${{ steps.build.outputs.digest }}
           ```
+
+    - name: Push to DigitalOcean
+      run: |
+        curl -X PUT "https://api.digitalocean.com/v2/apps/73768a79-e117-4aa6-8b4f-5f216c7ff6f0" \
+        -H "Authorization: Bearer ${{ secrets.DIGITAL_OCEAN_API_TOKEN }}" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "spec": {
+              "name": "cameron-doyle-portfolio",
+              "region": "syd1",
+              "domains": [
+                { "domain": "www.camerondoyle.dev", "type": "PRIMARY" }
+              ],
+              "alerts": [
+                { "rule": "DEPLOYMENT_FAILED" },
+                { "rule": "DOMAIN_FAILED" }
+              ],
+              "services": [
+                {
+                  "name": "cameron-doyle-portfolio",
+                  "http_port": 80,
+                  "image": {
+                    "registry_type": "GHCR",
+                    "registry": "cameron-doyle",
+                    "repository": "portfolio",
+                    "digest": "${{ steps.build.outputs.digest }}"
+                  }
+                }
+              ]
+            }
+          }'
+
+    - name: Purge cloudflare cache
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
